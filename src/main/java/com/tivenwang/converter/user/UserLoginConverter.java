@@ -28,6 +28,7 @@ public class UserLoginConverter extends AbstractLog4Api {
 
 	@Override
 	public boolean getResult() {
+		resultId=1000;
 		return true;
 	}
 	@Override
