@@ -5,7 +5,7 @@
 	version="3.0">
 	<servlet>
 		<servlet-name>Log4JInitServlet</servlet-name>
-		<servlet-class>com.onlan.servlet.Log4JInitServlet</servlet-class>
+		<servlet-class>com.tivenwang.servlet.Log4JInitServlet</servlet-class>
 		<init-param>
 			<param-name>log4j-properties-location</param-name>
 			<param-value>WEB-INF/log4j.properties</param-value>
@@ -21,10 +21,6 @@
 		<servlet-name>ServletAdaptor</servlet-name>
 		<url-pattern>/webresources/*</url-pattern>
 	</servlet-mapping>
-	<listener>
-		<description>ServletContextListener</description>
-		<listener-class>com.onlan.servlet.TimeTaskServletListener</listener-class>
-	</listener>
 	<session-config>
 		<session-timeout>30</session-timeout>
 	</session-config>
@@ -36,17 +32,8 @@
 		<url-pattern>/Log4JInitServlet</url-pattern>
 	</servlet-mapping>
 	<servlet>
-		<servlet-name>ParameterInitServlet</servlet-name>
-		<servlet-class>com.onlan.servlet.ParameterInitServlet</servlet-class>
-		<load-on-startup>2</load-on-startup>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>ParameterInitServlet</servlet-name>
-		<url-pattern>/ParameterInitServlet</url-pattern>
-	</servlet-mapping>
-	<servlet>
 		<servlet-name>VcodeImageCreateServlet</servlet-name>
-		<servlet-class>com.onlan.servlet.VcodeImageCreateServlet</servlet-class>
+		<servlet-class>com.tivenwang.servlet.VcodeImageCreateServlet</servlet-class>
 		<load-on-startup>3</load-on-startup>
 	</servlet>
 	<servlet-mapping>
@@ -55,7 +42,7 @@
 	</servlet-mapping>
 	<filter>
 		<filter-name>RequestFilter</filter-name>
-		<filter-class>com.onlan.filter.RequestFilter</filter-class>
+		<filter-class>com.tivenwang.filter.RequestFilter</filter-class>
 	</filter>
 	<filter-mapping>
 		<filter-name>RequestFilter</filter-name>
