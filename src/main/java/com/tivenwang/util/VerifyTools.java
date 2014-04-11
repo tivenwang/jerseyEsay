@@ -108,6 +108,7 @@ public class VerifyTools {
         Cipher deCipher = Cipher.getInstance("DES/CBC/PKCS5Padding");
         deCipher.init(Cipher.DECRYPT_MODE, keyy, iv);
 //        deCipher.getIV();   vector的值
+        
         BASE64Decoder base64Decoder = new BASE64Decoder();
         byte[] pasByte = deCipher.doFinal(base64Decoder.decodeBuffer(data));
         return new String(pasByte, "UTF-8");
