@@ -46,6 +46,7 @@ public class VerifyTools {
         iv = new IvParameterSpec(ivbyte);
         SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("DES");
         keyy = keyFactory.generateSecret(keySpec);
+ //       System.out.println(new String(keyy.getEncoded()));     key的值
     }
     
     private static void VerifyToolsReInit() throws Exception{
@@ -106,6 +107,7 @@ public class VerifyTools {
     	VerifyToolsInit();
         Cipher deCipher = Cipher.getInstance("DES/CBC/PKCS5Padding");
         deCipher.init(Cipher.DECRYPT_MODE, keyy, iv);
+//        deCipher.getIV();   vector的值
         BASE64Decoder base64Decoder = new BASE64Decoder();
         byte[] pasByte = deCipher.doFinal(base64Decoder.decodeBuffer(data));
         return new String(pasByte, "UTF-8");
@@ -160,7 +162,7 @@ public class VerifyTools {
             String test = "6222600110057831559";//123456
             System.out.println("加密前的字符：" + test);
             System.out.println("加密后的字符：" + VerifyTools.encode(test));
-            System.out.println("解密后的字符：" + VerifyTools.decode("lcVlHI1npumJ+vr2DIxeQ4rvTfylumPl"));
+            System.out.println("解密后的字符：" + VerifyTools.decode(VerifyTools.encode(test)));
             System.out.println("再次加密后的字符：" + VerifyTools.reEncode(VerifyTools.encode(test)));
             System.out.println("一次解密后的字符：" + VerifyTools.reDecode(VerifyTools.reEncode(VerifyTools.encode(test))));
             System.out.println("最终解密后的字符：" + VerifyTools.decodeComplete(VerifyTools.reEncode(VerifyTools.encode(test))));
